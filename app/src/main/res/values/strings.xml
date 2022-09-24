@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HUAWEI自动安装</string>
+
+    <string name="service_info">华为手机的自动安装辅助程序,自动点击安装按钮,自动点击打开</string>
+</resources>
