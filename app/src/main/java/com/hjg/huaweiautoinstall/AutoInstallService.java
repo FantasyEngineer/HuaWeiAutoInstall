@@ -31,7 +31,9 @@ public class AutoInstallService extends AccessibilityService {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    dispatchGestureClick(870, 2515);
+                    AccessibilityNodeInfo accessibilityNodeInfo = (AccessibilityNodeInfo) msg.obj;
+                    accessibilityNodeInfo.performAction(AccessibilityNodeInfo.ACTION_FOCUS);
+                    accessibilityNodeInfo.performAction(AccessibilityNodeInfo.ACTION_CLICK);
                     break;
             }
         }
@@ -62,8 +64,10 @@ public class AutoInstallService extends AccessibilityService {
             for (int i = 0; i < list.size(); i++) {
                 AccessibilityNodeInfo accessibilityNodeInfo = list.get(i);
                 if (accessibilityNodeInfo.getText().toString().equals("继续安装")) {
-                    accessibilityNodeInfo.performAction(AccessibilityNodeInfo.ACTION_FOCUS);
-                    accessibilityNodeInfo.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                    Message message = mHandler.obtainMessage();
+                    message.obj = accessibilityNodeInfo;
+                    message.what = 1;
+                    mHandler.sendMessageDelayed(message, 1000);
                     Log.d("autoservice", "找到,点击继续安装");
                 }
             }
@@ -76,8 +80,10 @@ public class AutoInstallService extends AccessibilityService {
             for (int i = 0; i < list.size(); i++) {
                 AccessibilityNodeInfo accessibilityNodeInfo = list.get(i);
                 if (accessibilityNodeInfo.getText().toString().equals("继续安装")) {
-                    accessibilityNodeInfo.performAction(AccessibilityNodeInfo.ACTION_FOCUS);
-                    accessibilityNodeInfo.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                    Message message = mHandler.obtainMessage();
+                    message.obj = accessibilityNodeInfo;
+                    message.what = 1;
+                    mHandler.sendMessageDelayed(message, 1000);
                     Log.d("autoservice", "找到市场里面的继续安装,点击继续安装");
                 }
             }
@@ -87,8 +93,10 @@ public class AutoInstallService extends AccessibilityService {
             for (int i = 0; i < list2.size(); i++) {
                 AccessibilityNodeInfo accessibilityNodeInfo = list2.get(i);
                 if (accessibilityNodeInfo.getText().toString().equals("打开")) {
-                    accessibilityNodeInfo.performAction(AccessibilityNodeInfo.ACTION_FOCUS);
-                    accessibilityNodeInfo.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                    Message message = mHandler.obtainMessage();
+                    message.obj = accessibilityNodeInfo;
+                    message.what = 1;
+                    mHandler.sendMessageDelayed(message, 1000);
                 }
             }
 

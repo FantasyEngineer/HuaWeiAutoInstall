@@ -7,12 +7,43 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tip"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="20dp"
-        android:text="开启该功能后,可以自动跳过用户安装软件时候,系统安装器提醒的是否安装,继续安装,继续安装,打开等操作">
+        android:text="开启该功能后,可以自动跳过用户安装软件时候,
+        统安装器提醒的是否安装,继续安装,继续安装,打开等操作
+        \n\n应用在后台不能被杀死,不然就没有效果了,这里先开启1像素的悬浮窗
+        ,提高应用权限
+"
+        app:layout_constraintTop_toTopOf="parent">
 
     </TextView>
+
+    <Button
+        android:id="@+id/systemAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openSystemAlert"
+        android:text="开启悬浮窗权限"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tip">
+
+    </Button>
+
+    <Button
+        android:id="@+id/openService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startService"
+        android:text="打开悬浮窗"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/systemAlert">
+
+    </Button>
+
 
     <Button
         android:id="@+id/open"
